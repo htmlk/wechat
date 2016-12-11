@@ -128,7 +128,7 @@ Page({
                  //console.log(odata[i].price);
                 for(var j=0;j<odata.length-i-1;j++){
                        // console.log(parseInt(odata[j].price)+"-----"+parseInt(odata[j+1].price));
-                  if(parseInt(odata[j].price)<parseInt(odata[j+1].price)){
+                  if(parseInt(odata[j].price)>parseInt(odata[j+1].price)){
                     var temp=odata[j];
                         odata[j]=odata[j+1];
                         odata[j+1]=temp;

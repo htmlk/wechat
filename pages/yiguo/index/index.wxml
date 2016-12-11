@@ -1,8 +1,6 @@
 <!--index.wxml-->
 <scroll-view class="container" scroll-y="true" scroll-into-view="{{toView}}"  scroll-top="{{scrollTop}}" bindscroll="scroll">
 
-
-
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper-box" id="top">
   <block wx:for-items="{{banner_list[0].banner}}" wx:key="index">
@@ -11,8 +9,6 @@
     </swiper-item>
   </block>
 </swiper>
-
-
 
  <view>
   <view class='menueview' >
@@ -26,7 +22,6 @@
    </block>
   </view>
  </view>
-
 <view class='hg-container' id="new" >
   <text class="hg-title">新品推荐</text>
         <view class='gooditem'>
@@ -56,10 +51,10 @@
 
 <view class="footer" bindtap="tap">
   <view>
-  <text>沪ICP备09008015号</text>
-  <text>m.yiguo.com</text>
-  <text>上海易果电子商务有限公司</text>
-  <text>上海市金钟路999号c幢6楼</text>
+  <text>沪ICP备888888888号</text>
+  <text>htmlk.cn</text>
+  <text>微信商城有限公司</text>
+  <text>北京市xxxxxxxxx</text>
   </view>
 </view>
 

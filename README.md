@@ -1,5 +1,9 @@
 # 微信小程序商城开发---真机测试有用！！！！
 
+接入hotapp二维码统计
+![image](https://weixin.hotapp.cn/img/banner3.jpg)
+
+- [好推hotapp官网地址:https://weixin.hotapp.cn/](https://weixin.hotapp.cn/)
 ## 目录
 
 - [官方文档](#官方文档)

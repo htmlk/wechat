@@ -2,7 +2,6 @@ var app = getApp()
 Page({
   data:{
      userInfo: {},
-   
      mine_list:[ 
           {
             "pic_url": "/images/icons/iocn_home_01.png",
@@ -39,7 +38,17 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var that = this;
+   
+  },
+  modalconfirm:function(){
+    wx.setStorageSync('username', this.data.item.userlocal.nickName);
+    wx.setStorageSync('password', this.data.item.userlocal.nickPwd);
+    this.setData({
+      'item.signinHidden':true
+    })
+  },
+  modalcancel:function(){
+     var that = this;
     app.getUserInfo(function(userInfo){
       //更新数据
       //console.log(userInfo);
@@ -52,16 +61,16 @@ Page({
         userInfo:userInfo
       })
     })
-  },
-  modalconfirm:function(){
-    wx.setStorageSync('username', this.data.item.userlocal.nickName);
-    wx.setStorageSync('password', this.data.item.userlocal.nickPwd);
-    this.setData({
+    this.onShow();
+     this.setData({
       'item.signinHidden':true
     })
   },
-  modalcancel:function(){
-
+  quit:function(){
+    this.setData({
+        userInfo:'',
+        'item.signinHidden':false
+      })
   },
   saveusername:function(event){
     this.setData({
@@ -74,10 +83,16 @@ Page({
     });
   },
   onReady:function(){
+    console.log(app.globalData.hotapp);
     // 页面渲染完成
   },
   onShow:function(){
-    // 页面显示
+    if(this.data.userInfo==''){
+      this.setData({
+      'item.signinHidden':false
+      })
+    }
+
   },
   onHide:function(){
     // 页面隐藏

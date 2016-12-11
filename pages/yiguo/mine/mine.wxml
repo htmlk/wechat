@@ -19,7 +19,7 @@
         </ul>
     </view>
 
-    <view class="footer"><button type="warn" > 退出登录</button></view>
-
+    <view class="footer"><button type="warn"  bindtap="quit" > 退出登录</button></view>
+    
 
 </view>

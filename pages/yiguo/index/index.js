@@ -1,48 +1,27 @@
 //index.js
 //获取应用实例
 var app = getApp()
+
 Page({
   data: {
-    toView:"",
+    toView: "",
     motto: 'MiHome_Store',
     userInfo: {},
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
     duration: 100,
-    newgoods:[
-      { 
-        "hg_pic":"http://img14.yiguoimg.com/e/ad/2016/160914/585749449477366062_260x320.jpg"
-      },{
-        "hg_pic":"http://img09.yiguoimg.com/e/ad/2016/161011/585749449909281099_260x320.jpg"
-      },{
-        "hg_pic":"http://img12.yiguoimg.com/e/ad/2016/160914/585749449480249646_260x320.jpg"
-      }
-    ],
-    hotgoods:[
+    newgoods: [
       {
-        "more_pic":"http://img10.yiguoimg.com/e/ad/2016/161008/585749449862226248_778x303.jpg"
-      },{
-        "more_pic":"http://img14.yiguoimg.com/e/ad/2016/160929/585749449767461181_778x303.jpg"
-      },{
-        "more_pic":"http://img12.yiguoimg.com/e/ad/2016/161009/585749449871663433_778x303.jpg"
-      },{
-        "more_pic":"http://img10.yiguoimg.com/e/ad/2016/161008/585749449862226248_778x303.jpg"
-      },{
-        "more_pic":"http://img14.yiguoimg.com/e/ad/2016/160929/585749449767461181_778x303.jpg"
-      },{
-        "more_pic":"http://img12.yiguoimg.com/e/ad/2016/161009/585749449871663433_778x303.jpg"
-      },{
-        "more_pic":"http://img10.yiguoimg.com/e/ad/2016/161008/585749449862226248_778x303.jpg"
-      },{
-        "more_pic":"http://img14.yiguoimg.com/e/ad/2016/160929/585749449767461181_778x303.jpg"
-      },{
-        "more_pic":"http://img12.yiguoimg.com/e/ad/2016/161009/585749449871663433_778x303.jpg"
-      },{
-        "more_pic":"http://img10.yiguoimg.com/e/ad/2016/161008/585749449862226248_778x303.jpg"
+        "hg_pic": "http://img14.yiguoimg.com/e/ad/2016/160914/585749449477366062_260x320.jpg"
+      }, {
+        "hg_pic": "http://img09.yiguoimg.com/e/ad/2016/161011/585749449909281099_260x320.jpg"
+      }, {
+        "hg_pic": "http://img12.yiguoimg.com/e/ad/2016/160914/585749449480249646_260x320.jpg"
       }
     ],
-    banner_list:[
+    hotgoods: [],
+    banner_list: [
       {
         "banner": [
           {
@@ -63,33 +42,17 @@ Page({
         ]
       },
       {
-   "banner": [
-          {
-            "pic_url": "/images/icons/iocn_home_01.png",
-            "title":"新品尝鲜",
-          },
-          {
-            "pic_url": "/images/icons/iocn_home_02.png",
-            "title":"订单查询",
-          },
-          {
-            "pic_url": "/images/icons/iocn_home_03.png",
-            "title":"水果精选",
-          },
-          {
-            "pic_url": "/images/icons/iocn_home_04.png",
-            "title":"优惠券",
-          }
-        ]
+        "banner": []
       }
-    ]},
+    ]
+  },
   onPullDownRefresh: function () {
     console.log('onPullDownRefresh')
   },
-  scroll: function(e){
-    if(this.data.toView=="top"){
+  scroll: function (e) {
+    if (this.data.toView == "top") {
       this.setData({
-        toView:""
+        toView: ""
       })
     }
   },
@@ -100,26 +63,93 @@ Page({
       url: '../logs/logs'
     })
   },
-  tap:function(){
+  tap: function () {
     this.setData({
-      toView:"top"
+      toView: "top"
     })
   },
   onLoad: function () {
-    //var that = this;
-    // wx.request({
-    //         url: 'http://m.htmlk.cn/json-test/list.json',
-    //         header: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         success: function(res) {
-    //           that.setData({
-    //                hotgoods:res.data
-    //            });  
-    //         }
-    //     })
-        
+
     //调用应用实例的方法获取全局数据
-   
+    var that = this;
+    //获取全局的hotapp对象
+    var hotapp = app.globalData.hotapp;
+      hotapp.error();
+    //通过对象中的get获取数
+    hotapp.get('hot', function (res) {
+      console.log(res.data.value)
+      that.setData({
+        hotgoods: res.data.value
+      })
+    })
+
+
+    //通过原生调取数据
+    wx.request({
+      url: 'https://wxapi.hotapp.cn/api/get',
+      data: {
+        appkey: 'hotapp25781921',
+        key: 'hot1'
+      },
+      method: "GET",
+      header: {
+        "content-type": "application/json"
+      },
+      success: function (a) {
+        console.log(a)
+        return "function" == typeof b && b(a.data)
+      },
+      fail: function (err) {
+        console.log(err)
+        return "function" == typeof b && b(!1)
+      }
+    })
+    //fecth调用
+    var fekchobj = {
+      R_GET: function (url, params) {
+        if (params) {
+          let paramsArray = []
+          Object.keys(params).forEach(key => paramsArray.push(key + '=' + encodeURIComponent(params[key])))
+          if (url.search(/\?/) === -1) {
+            url += '?' + paramsArray.join('&')
+
+          } else {
+            url += '&' + paramsArray.join('&')
+          }
+        }
+
+        return new Promise(function (resolve, reject) {
+          fetch(url)
+            .then((response) => {
+              if (response.ok) {
+                return response.json()
+
+              } else {
+                reject('服务器繁忙，请稍后再试；\r\nCode:' + response.status)
+              }
+            })
+            .then((response) => {
+              if (response && response.status) {
+                resolve(response)//response.status 是与服务器端的约定，非0就是错误
+              } else {
+                reject(response)//response也是与服务器端的约定
+              }
+            })
+            .catch((err) => {
+              reject(_parseErrorMsg(err))
+            })
+        })
+      }
+    }
+    //监测错误
+    try{
+     
+    }catch(e){
+      console.log(e)
+    }
+   console.log(fekchobj)
+    
+
+
   }
 })
