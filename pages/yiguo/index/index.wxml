@@ -10,6 +10,9 @@
   </block>
 </swiper>
 
+
+
+
  <view>
   <view class='menueview' >
    <block wx:for-items="{{banner_list[1].banner}}" wx:key="index">

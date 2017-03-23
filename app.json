@@ -6,6 +6,7 @@
     "pages/yiguo/mine/mine",
     "pages/yiguo/detail/detail"
   ],
+  
   "tabBar": {
     "color": "#858585",
     "selectedColor": "#008842",

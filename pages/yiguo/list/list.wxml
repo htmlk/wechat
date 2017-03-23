@@ -8,6 +8,8 @@
 
 <swiper class="swiper-box"  current="{{current}}" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" bindchange="changeSlider">
   <block>
+
+  
 <!-- 1 -->
     <swiper-item>
       <scroll-view scroll-y="true" class="scroll-box">

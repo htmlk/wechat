@@ -16,6 +16,7 @@ page{
     color: #008842;
 }
 button{
+
     width: 300rpx;
     color: #008842;
 }
