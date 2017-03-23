@@ -1,5 +1,5 @@
 # 微信小程序商城开发---真机测试有用！！！！
-
+![](http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg)
 ## 目录
 
 - [官方文档](#官方文档)
