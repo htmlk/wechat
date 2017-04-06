@@ -49,18 +49,20 @@ Page({
   },
   modalcancel:function(){
      var that = this;
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      //console.log(userInfo);
-     // nickName: "A花椒软件-小K", 
-     //avatarUrl: "http://wx.qlogo.cn/mmhead/0vat6xq2cojlD8cF9acwmz6oB6IjBlkO9YHU3VFRdvg/132",
-     // gender: 1, 
-     //province: "Jiangxi", 
-     //city: "Nanchang"
-      that.setData({
-        userInfo:userInfo
+      wx.login({
+        success: function () {
+          wx.getUserInfo({
+            success: function (res) {
+             
+               that.setData({
+        userInfo:res.userInfo
       })
-    })
+            }
+          })
+        }
+      })
+     
+   
     this.onShow();
      this.setData({
       'item.signinHidden':true
@@ -83,7 +85,7 @@ Page({
     });
   },
   onReady:function(){
-    console.log(app.globalData.hotapp);
+   
     // 页面渲染完成
   },
   onShow:function(){

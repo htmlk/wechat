@@ -72,17 +72,7 @@ Page({
 
     //调用应用实例的方法获取全局数据
     var that = this;
-    //获取全局的hotapp对象
-    var hotapp = app.globalData.hotapp;
-      hotapp.error();
-    //通过对象中的get获取数
-    hotapp.get('hot', function (res) {
-      console.log(res.data.value)
-      that.setData({
-        hotgoods: res.data.value
-      })
-    })
-
+   
 
     //通过原生调取数据
     wx.request({

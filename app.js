@@ -1,36 +1,10 @@
-//app.js
-
-
-//在app.js中的onLaunch方法中调用hotapp.init("HotAPP的Key")
+/*
+***微信商城开发，
+***免费云后台申请地址 https://weixin.hotapp.cn/cloud
+***API 文档地址：https://weixin.hotapp.cn/api
+***小程序技术讨论QQ群：173063969
+*/
 App({
   onLaunch: function () {
-    
-    //调用API从本地缓存中获取数据
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
   },
-  
-  getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
-  },
-  //全局变量
-  globalData:{
-   hotapp:hotapp
-  }
 })

@@ -16,9 +16,7 @@ Page({
     })
   },
   onReady:function(){
-    console.log(app.globalData.hotapp)
-    var hotapp=app.globalData.hotapp
-    hotapp.onEvent("cart",100000)
+   
     // 页面渲染完成
   },
   cart:function(){
