@@ -1,14 +1,9 @@
-/**app.wxss**/
-/*.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}*/
-
+/*
+***微信商城开发，
+***微信号：k1009756987
+***博客：htmlk.cn
+***QQ群：654226989
+*/
 .container {
   display: flex;
   flex-direction: column;

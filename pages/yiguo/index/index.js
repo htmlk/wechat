@@ -20,7 +20,19 @@ Page({
         "hg_pic": "http://img12.yiguoimg.com/e/ad/2016/160914/585749449480249646_260x320.jpg"
       }
     ],
-    hotgoods: [],
+    hotgoods: [{
+      "more_pic": "http://img13.yiguoimg.com/e/albums/2017/170630/153403897791357662_800x468.jpg"
+    }, {
+      "more_pic": "http://img14.yiguoimg.com/e/albums/2017/170629/153403897729786589_800x468.jpg",
+    }, {
+      "more_pic": " http://img12.yiguoimg.com/e/albums/2017/170626/153403897618375386_596x379.jpg",
+    }, {
+      "more_pic": " http://img12.yiguoimg.com/e/albums/2017/170621/153403897468003029_800x468.jpg",
+    }
+
+
+
+    ],
     banner_list: [
       {
         "banner": [
@@ -69,77 +81,9 @@ Page({
     })
   },
   onLoad: function () {
-
-    //调用应用实例的方法获取全局数据
-    var that = this;
-   
-
-    //通过原生调取数据
-    wx.request({
-      url: 'https://wxapi.hotapp.cn/api/get',
-      data: {
-        appkey: 'hotapp25781921',
-        key: 'hot1'
-      },
-      method: "GET",
-      header: {
-        "content-type": "application/json"
-      },
-      success: function (a) {
-        console.log(a)
-        return "function" == typeof b && b(a.data)
-      },
-      fail: function (err) {
-        console.log(err)
-        return "function" == typeof b && b(!1)
-      }
-    })
-    //fecth调用
-    var fekchobj = {
-      R_GET: function (url, params) {
-        if (params) {
-          let paramsArray = []
-          Object.keys(params).forEach(key => paramsArray.push(key + '=' + encodeURIComponent(params[key])))
-          if (url.search(/\?/) === -1) {
-            url += '?' + paramsArray.join('&')
-
-          } else {
-            url += '&' + paramsArray.join('&')
-          }
-        }
-
-        return new Promise(function (resolve, reject) {
-          fetch(url)
-            .then((response) => {
-              if (response.ok) {
-                return response.json()
-
-              } else {
-                reject('服务器繁忙，请稍后再试；\r\nCode:' + response.status)
-              }
-            })
-            .then((response) => {
-              if (response && response.status) {
-                resolve(response)//response.status 是与服务器端的约定，非0就是错误
-              } else {
-                reject(response)//response也是与服务器端的约定
-              }
-            })
-            .catch((err) => {
-              reject(_parseErrorMsg(err))
-            })
-        })
-      }
-    }
-    //监测错误
-    try{
-     
-    }catch(e){
-      console.log(e)
-    }
-   console.log(fekchobj)
-    
-
-
+    console.log("微信商城开发(欢迎合作)")
+    console.log("微信号：k1009756987")
+    console.log("博客：htmlk.cn ")
+    console.log("QQ群：654226989 ")
   }
 })

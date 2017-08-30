@@ -1,10 +1,21 @@
 /*
 ***微信商城开发，
-***免费云后台申请地址 https://weixin.hotapp.cn/cloud
-***API 文档地址：https://weixin.hotapp.cn/api
-***小程序技术讨论QQ群：173063969
+***微信号：k1009756987
+***博客：htmlk.cn
+***QQ群：654226989
 */
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+    // Do something initial when launch.
   },
+  onShow: function (options) {
+    // Do something when show.
+  },
+  onHide: function () {
+    // Do something when hide.
+  },
+  onError: function (msg) {
+    console.log(msg)
+  },
+  globalData: 'I am global data'
 })
