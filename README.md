@@ -9,7 +9,7 @@
 
 
 - [加入QQ群 564956472【微信小程序开发交流】(如果群满了加我个人QQ号(1009756987)我拉你入群)](http://jq.qq.com/?_wv=1027&k=40K4X8z)
-## 官方文档
+## 官方文档 微信商城开发，接受个人商业服务（后台，服务器等配置）。
 
 - [小程序开发文档](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html)
 - [小程序设计指南](https://mp.weixin.qq.com/debug/wxadoc/design/index.html)
