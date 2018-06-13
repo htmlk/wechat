@@ -22,6 +22,9 @@ page{
 }
 .detail-name li{
     height:80rpx;
+    line-height: 80rpx;
+    padding-left: 20px;
+    align-content: center;
     border-bottom: 1px solid #ccc;
 }
 .detail-footer{
